@@ -1,0 +1,259 @@
+0304
+* 버전관리 도구 Git
+* 소프트웨어 형상관리 
+
+* 버전관리 - Git
+repositories : 저장소
+여기마다 홈페이지나 사이트들 각각 만들 수 있음. 기본적인 단위
+
+-- 새 저장소 만듦(helloworld)
+
+branch : 저장소에 깃 내용을 넣겟다하면 브랜치는 기능별로, 용도별로 가지치기하는 것. 시스템을 만들 때 메인스트림을 건드리지않고 새로운 기능을 추가할 때 .. 새로운 브랜치를 하나넣음(브랜치 1개) 완벽한 기능이 될때 메인에 브랜치 추가하여 완성
+
+메인에서 브랜치 생성시 메인의 내용 그대로 브랜치 안에 들어간다.
+
+브랜치에 파일 추가할 때 commit changes : description 추가할 수 있음. 커밋은 무언가를 반영한다, 저장한다는 의미
+
+저장소 여러개 만들지 말고 폴더 만들어서 서브 넣을 수 있다.
+
+*****과제
+(3/7(월) 9시까지) 
+2.소프트웨어 형상관리 : 과제1
+
+-------------------
+git
+로컬에 있는 컴퓨터와 연결
+
+remote(깃 서버)
+local(깃 클라이언트) -> 설치할 소프트웨어 : gui....
+remote -> 
+
+내 c드라이브 밑에 어떤 폴더(d드라이브 밑에 "git" 이라고 폴더 생성)를 깃으로 관리하겟다 -> local 데스크탑 git 설치
+여기 폴더에서 저장소에 매핑되는 프로젝트 만들 것
+
+git bash 실행 후 cd d:\git
+에서
+mkdir project1 이프로젝트를 깃으로 활용하겟다
+
+일케
+
+git init 이 프로젝트1을 깃으로 관리하겟다
+master 라는 브랜치를 만들었다. 이소프트웨어는 메인이 아니라 마스터로 만듦.
+마스터브랜치
+
+git status : 깃 상태 확인
+
+git add a.java.txt -> 그냥 add 자체가 생략되어있다. 알아서 add해줌
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d
+$ ls
+'$RECYCLE.BIN'/  'System Volume Information'/   git/
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d
+$ cd git
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git
+$ mkdir project1
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git
+$ cd project1/
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project1
+$ git init
+Initialized empty Git repository in D:/git/project1/.git/
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project1 (master)
+$ ls
+a.java.txt
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project1 (master)
+$ git add a.java.txt
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   a.java.txt
+
+//add 된 것 커밋
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project1 (master)
+$ git commit -m "a.java first commit"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'DA@DESKTOP-J0Q5SI1.(none)')
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project1 (master)
+$ git config --global user.name "Sun Jung"
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project1 (master)
+$ git config --global user.email "wjdtjs905@likelion.org"  ---> 이 이메일을 가진 사람이 커밋했따.
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project1 (master)
+$ 다시 git commit -m ~~~~ : 하면 잘 되었다.
+
+project1이 레퍼지토리
+
+
+i#error message
+:q! enter로 빠져나오기
+
+----------------
+git scm에서는 브랜치 명이 master, github에서는 main
+
+
+
+(git 이라는 기술을 통해 github에 저장)
+
+깃헙닷컴이랑 아직 연결안함.
+내컴퓨터에서만 형상관리할 수 있다.
+나 혼자만 사용할 수 있음. 
+
+내컴퓨터에 있는 저장소랑 깃허브랑 연결
+
+
+지금까지는 나혼자 관리
+내컴퓨터에 어떤 저장소(폴더)를 사용
+------------------------------
+REMOTE 저장소 연동하기
+저장소 2개있음(온프레미스/클라우드)
+
+깃헙닷컴의 저장소와 내컴퓨터의 폴더와 연동
+
+remote를 새로 추가하겠다.
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project1 (master)
+$ cd ..
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git
+$ mkdir project2
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git
+$ cd project2
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project2
+$ git remote add origin https://github.com/sunnny10/sunnny10.github.io.git
+fatal: not a git repository (or any of the parent directories): .git
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project2
+$ git init
+Initialized empty Git repository in D:/git/project2/.git/
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project2 (master)
+$ git remote add origin https://github.com/sunnny10/sunnny10.github.io.git
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project2 (master)
+$ git remote
+origin
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project2 (master)
+$ git remote -v
+origin  https://github.com/sunnny10/sunnny10.github.io.git (fetch)
+origin  https://github.com/sunnny10/sunnny10.github.io.git (push)
+
+DA@DESKTOP-J0Q5SI1 MINGW64 /d/git/project2 (master)
+$
+
+
+push : remote에 내 꺼를 집어넣는 것
+fetch : remote에 있는 걸 내 꺼로 집어넣는 것
+
+
+
+git clone의 경우 default가 클론되게 되어있음.
+
+ git clone –b특정_branch_이름 외부_repository_주소 -> 이거는 아무것도 클론하지 않았을 경우 사용
+
+origin은 축약어
+
+clone은 remote에 있는 것을 그대로 복사해서 가져옴
+그래서 수정해서 git add git commit하면 로컬에만 저장됨.
+이후 puch pull해야 remote에 저장됨.
+
+pull -> fetch 가져와서 내꺼랑 merge하는 것 / fetch + merge
+
+----------------------------------------------------------------------------------------------------------------
+0307(월)
+---------------------------------------------------------------------------------------------------------------
+
+지금까지는 콘솔 작업
+이제 이클립스(개발환경)에서 작업하고, 이클립스랑 내 깃허브 연결하기 
+
+이클립스 설치(ee 버전)
+자바 8
+자바는 jvm위에서 동작 
+
+이클립스 -> 자바 17로 프로젝트 만들었을 경우 project - properties - java build path에서 라이브러리 1.8로 바꿔줘야 함
+
+수업자료
+->
+따로로컬레포지토리를생성하지않고이클립스프로젝트를local git repository로사용 -> git init 역할
+
+
+git 저장소 뷰 -> windows > show view > git repository  클릭
+깃 repository가 관리하고 있는 것들이 보임
+
+remotes 추가하기 오른쪽 클릭 -> create remote
+
+너무 개인적인 설정의 경우 굳이 커밋할 필요없다.
+
+
+컨트롤 # ->의 경우 로컬에 커밋앤 푸시하는 것
+push branch master -> remote에 푸시하는 것
+
+
+stash -> 커밋하지않은 상태에서 임시저장
+
+
+과제2 -> sourcetree 영상 : 제출기한 -> 목요일 아침까지
+
+* 내가 만든 프로젝트를 깃으로 관리하고 싶은 경우 : 프로젝트 속성 -> team -> share project ->> git init 역할
+-> commit -> gitignore에 올리면 안되는 거 작성 후 커밋
+remote에 올리고 싶으면 remote -> create remote (보통 origin) / 로그인 문제있을 경우 토큰으로 로그인
+push 하면 github에 올라감
+fetch는 먼저 fetch configure 하고 그 다음에 각 브랜치에서 merge 하면 됨.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
